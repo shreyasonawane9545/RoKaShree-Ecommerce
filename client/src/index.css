@@ -1,0 +1,663 @@
+@import "tailwindcss";
+
+/* =========================================================
+   RO K A S H R E E — GLOBAL STYLES
+   Premium Macrame E-Commerce Website
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: #f8f3ed;
+  color: #4b352a;
+
+  font-family: Arial, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   FORM FONT
+========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* =========================================================
+   INPUTS — GLOBAL PREMIUM RESET
+========================================================= */
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+
+/* =========================================================
+   REMOVE BROWSER FOCUS OUTLINE
+========================================================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+
+/* =========================================================
+   REMOVE DEFAULT WEBKIT APPEARANCE
+========================================================= */
+
+input,
+textarea,
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+   Outer wrapper controls the border
+========================================================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   PASSWORD / TEXT INPUT FIX
+========================================================= */
+
+input[type="password"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"] {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   INPUT FOCUS SHOULD NOT CREATE INNER BORDER
+========================================================= */
+
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+::placeholder {
+  color: #a99a8c;
+  opacity: 1;
+}
+
+
+/* =========================================================
+   DATE INPUT
+========================================================= */
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.65;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   NUMBER INPUT
+   Remove browser arrows
+========================================================= */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+
+/* =========================================================
+   SCROLLBAR — PREMIUM WEBSITE
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3e8da;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b6875d;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b5e3c;
+}
+
+
+/* =========================================================
+   FIREFOX SCROLLBAR
+========================================================= */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #b6875d #f3e8da;
+}
+
+
+/* =========================================================
+   CATEGORY HORIZONTAL SCROLLBAR
+========================================================= */
+
+.category-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.category-scroll::-webkit-scrollbar-track {
+  background: #f3e8da;
+  border-radius: 999px;
+}
+
+.category-scroll::-webkit-scrollbar-thumb {
+  background: #8b5e3c;
+  border-radius: 999px;
+}
+
+.category-scroll::-webkit-scrollbar-thumb:hover {
+  background: #6d472d;
+}
+
+.category-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #8b5e3c #f3e8da;
+}
+
+
+/* =========================================================
+   MODAL / DROPDOWN SCROLLBAR
+========================================================= */
+
+.modal-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: #f8f3ed;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: #c8a98a;
+  border-radius: 999px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #8b5e3c;
+}
+
+
+/* =========================================================
+   PREMIUM FADE ANIMATION
+========================================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out;
+}
+
+
+/* =========================================================
+   PREMIUM MODAL ANIMATION
+========================================================= */
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-modalIn {
+  animation: modalIn 0.3s ease-out;
+}
+
+
+/* =========================================================
+   PREMIUM DROPDOWN ANIMATION
+========================================================= */
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-dropdown {
+  animation: dropdownIn 0.2s ease-out;
+}
+
+
+/* =========================================================
+   BUTTON RESET
+========================================================= */
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+textarea {
+  resize: vertical;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background: #e8d6c3;
+  color: #4b352a;
+}
+
+
+/* =========================================================
+   PREMIUM PROFILE MENU
+========================================================= */
+
+@keyframes profileMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.profile-menu-animation {
+  animation: profileMenu 0.2s ease-out;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   Accessibility
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================================
+   ROKASHREE — FINAL PREMIUM TOAST
+   React-Toastify compatible
+========================================================= */
+
+
+/* =========================================================
+   TOAST CONTAINER VARIABLES
+   React-Toastify uses these variables for positioning.
+========================================================= */
+
+.Toastify__toast-container {
+  --toastify-toast-top: 88px !important;
+  --toastify-toast-right: 24px !important;
+  --toastify-container-width: 360px !important;
+
+  z-index: 999999 !important;
+}
+
+
+/* =========================================================
+   TOP RIGHT POSITION
+========================================================= */
+
+.Toastify__toast-container--top-right {
+  top: var(--toastify-toast-top) !important;
+  right: var(--toastify-toast-right) !important;
+
+  width: var(--toastify-container-width) !important;
+}
+
+
+/* =========================================================
+   ROKASHREE TOAST
+========================================================= */
+
+.rokashree-toast {
+  --toastify-toast-width: 360px;
+  --toastify-toast-min-height: 58px;
+  --toastify-toast-padding: 0;
+  --toastify-toast-bd-radius: 15px;
+  --toastify-toast-shadow:
+    0 14px 35px rgba(75, 53, 42, 0.11);
+
+  position: relative !important;
+
+  width: 360px !important;
+  min-height: 58px !important;
+
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  background: #fffdf9 !important;
+  color: #4b352a !important;
+
+  border: 1px solid #dfd2c6 !important;
+  border-radius: 15px !important;
+
+  box-shadow:
+    0 14px 35px rgba(75, 53, 42, 0.11) !important;
+
+  overflow: hidden !important;
+
+  box-sizing: border-box !important;
+
+  font-family: Arial, sans-serif !important;
+}
+
+
+/* =========================================================
+   SUBTLE ROKASHREE ACCENT
+========================================================= */
+
+.rokashree-toast::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 9px;
+  bottom: 9px;
+
+  width: 3px;
+
+  background: #8b5e3c;
+
+  border-radius: 0 3px 3px 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TOAST CONTENT
+========================================================= */
+
+.rokashree-toast {
+  padding: 0 48px 0 20px !important;
+
+  font-size: 14px !important;
+  font-weight: 500 !important;
+
+  line-height: 1.4 !important;
+
+  letter-spacing: 0 !important;
+}
+
+
+/* =========================================================
+   REMOVE DEFAULT ICON
+========================================================= */
+
+.rokashree-toast .Toastify__toast-icon {
+  display: none !important;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.rokashree-toast .Toastify__close-button {
+  position: absolute !important;
+
+  top: 50% !important;
+  right: 14px !important;
+
+  width: 22px !important;
+  height: 22px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  transform: translateY(-50%) !important;
+
+  background: transparent !important;
+
+  border: none !important;
+
+  color: #8b5e3c !important;
+
+  opacity: 0.45 !important;
+
+  cursor: pointer !important;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+
+.rokashree-toast .Toastify__close-button:hover {
+  opacity: 0.9 !important;
+
+  transform:
+    translateY(-50%)
+    scale(1.08) !important;
+}
+
+
+/* =========================================================
+   REMOVE PROGRESS BAR
+========================================================= */
+
+.rokashree-toast .Toastify__progress-bar {
+  display: none !important;
+}
+
+
+/* =========================================================
+   SAME DESIGN FOR EVERY TOAST TYPE
+========================================================= */
+
+.rokashree-toast.Toastify__toast--success,
+.rokashree-toast.Toastify__toast--error,
+.rokashree-toast.Toastify__toast--warning,
+.rokashree-toast.Toastify__toast--info,
+.rokashree-toast.Toastify__toast--default {
+  background: #fffdf9 !important;
+  color: #4b352a !important;
+
+  border-color: #dfd2c6 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  /* Compact mobile toast container */
+  .Toastify__toast-container {
+    --toastify-toast-top: 64px !important;
+    --toastify-toast-right: 10px !important;
+    --toastify-container-width: 250px !important;
+
+    width: 250px !important;
+    padding: 0 !important;
+  }
+
+
+  .Toastify__toast-container--top-right {
+    top: var(--toastify-toast-top) !important;
+    right: var(--toastify-toast-right) !important;
+    left: auto !important;
+
+    width: 250px !important;
+  }
+
+
+  /* Compact RoKaShree mobile toast */
+  .rokashree-toast {
+    width: 250px !important;
+
+    min-height: 42px !important;
+    height: 42px !important;
+
+    margin: 0 0 8px 0 !important;
+
+    border-radius: 10px !important;
+
+    padding: 0 34px 0 14px !important;
+
+    font-size: 11px !important;
+    font-weight: 500 !important;
+
+    line-height: 1.2 !important;
+  }
+
+
+  .rokashree-toast::before {
+    top: 7px !important;
+    bottom: 7px !important;
+    width: 2px !important;
+  }
+
+
+  .rokashree-toast .Toastify__toast-body {
+    min-height: 24px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+
+
+  .rokashree-toast .Toastify__close-button {
+    right: 9px !important;
+
+    width: 16px !important;
+    height: 16px !important;
+
+    font-size: 11px !important;
+
+    opacity: 0.55 !important;
+  }
+
+
+  .rokashree-toast .Toastify__close-button:hover {
+    transform: translateY(-50%) scale(1.05) !important;
+  }
+}
