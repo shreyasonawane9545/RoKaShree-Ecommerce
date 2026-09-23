@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 
-import wallhanging1 from "../assets/products/wall-hanging1.jpg";
-import planthanger1 from "../assets/products/plant-hanger4.jpg";
-import curtain1 from "../assets/products/curtain-1.jpg";
-import dreamcatcher1 from "../assets/products/dream-catcher5.jpg";
+import wallhanging1 from "../assets/Products/wall-hanging1.jpg";
+import planthanger1 from "../assets/Products/plant-hanger4.jpg";
+import curtain1 from "../assets/Products/curtain-1.jpg";
+import dreamcatcher1 from "../assets/Products/dream-catcher5.jpg";
 
 export default function FeaturedProducts() {
   const products = [
