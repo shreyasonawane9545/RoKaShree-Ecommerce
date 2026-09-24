@@ -281,11 +281,14 @@ export default function AdminProducts() {
   const [productCategory, setProductCategory] =
     useState("");
 
-  const [productImage, setProductImage] =
-    useState("");
+ const [productImage, setProductImage] =
+  useState("");
 
-  const [imageSearch, setImageSearch] =
-    useState("");
+const [selectedImageName, setSelectedImageName] =
+  useState("");
+
+const [imageSearch, setImageSearch] =
+  useState("");
 
 
   // ===========================================================
@@ -319,21 +322,26 @@ export default function AdminProducts() {
 
   const fetchProducts = async () => {
     try {
-      setLoading(true);
-      setErrorMessage("");
-
-      const snapshot =
+     const snapshot =
         await getDocs(
           collection(db, "products")
         );
 
-      const productList =
-        snapshot.docs.map(
-          (productDoc) => ({
-            id: productDoc.id,
-            ...productDoc.data(),
-          })
-        );
+      const productList = snapshot.docs.map((productDoc) => {
+  const firestoreProduct = productDoc.data();
+
+  const localProduct = localProducts.find(
+    (product) =>
+      product.name ===
+      (firestoreProduct.imageName || firestoreProduct.name)
+  );
+
+  return {
+    id: productDoc.id,
+    ...firestoreProduct,
+    image: localProduct?.image || firestoreProduct.image,
+  };
+});
 
       setProducts(productList);
     } catch (error) {
@@ -351,9 +359,10 @@ export default function AdminProducts() {
   };
 
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+ useEffect(() => {
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  fetchProducts();
+}, []);
 
 
   // ===========================================================
@@ -463,6 +472,7 @@ export default function AdminProducts() {
     setProductPrice("");
     setProductCategory("");
     setProductImage("");
+    setSelectedImageName("");
     setImageSearch("");
 
     setErrorMessage("");
@@ -494,11 +504,11 @@ export default function AdminProducts() {
       product.category || ""
     );
 
-    setProductImage(
-      product.image || ""
-    );
-
-    setImageSearch("");
+    setProductImage(product.image || "");
+setSelectedImageName(
+  product.imageName || product.name || ""
+);
+setImageSearch("");
 
     setErrorMessage("");
 
@@ -520,6 +530,7 @@ export default function AdminProducts() {
     setProductPrice("");
     setProductCategory("");
     setProductImage("");
+    setSelectedImageName("");
     setImageSearch("");
 
     setErrorMessage("");
@@ -616,14 +627,10 @@ export default function AdminProducts() {
               category:
                 productCategory,
 
-              image:
-                productImage,
-
-              createdAt:
-                new Date(),
-
-              updatedAt:
-                new Date(),
+             image: productImage,
+             imageName: selectedImageName,
+             createdAt: new Date(),
+             updatedAt: new Date(),
             }
           );
 
@@ -656,11 +663,9 @@ export default function AdminProducts() {
               category:
                 productCategory,
 
-              image:
-                productImage,
-
-              updatedAt:
-                new Date(),
+             image: productImage,
+             imageName: selectedImageName,
+             updatedAt: new Date(),
             },
             {
               merge: true,
@@ -1668,7 +1673,12 @@ export default function AdminProducts() {
                       {product.image ? (
 
                         <img
-                          src={product.image}
+                         src={
+                          localProducts.find(
+                          (localProduct) =>
+                           localProduct.name === product.name
+                              )?.image || product.image
+                            }
                           alt={product.name}
                           className="
                             h-full
@@ -2368,19 +2378,17 @@ export default function AdminProducts() {
                   {filteredImages.map(
                     (image) => {
 
-                      const selected =
-                        productImage ===
-                        image.path;
+                     const selected =
+                      selectedImageName === image.name;
 
                       return (
                         <button
                           key={`${image.name}-${image.path}`}
                           type="button"
-                          onClick={() =>
-                            setProductImage(
-                              image.path
-                            )
-                          }
+                         onClick={() => {
+                         setProductImage(image.path);
+                         setSelectedImageName(image.name);
+                          }}
                           className={`
                             relative
                             aspect-square

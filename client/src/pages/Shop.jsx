@@ -42,17 +42,26 @@ export default function Shop() {
   // LOAD PRODUCTS FROM FIRESTORE
   // =====================================================
 
- useEffect(() => {
+useEffect(() => {
   const fetchProducts = async () => {
     try {
       const snapshot = await getDocs(
         collection(db, "products")
       );
 
-      const productList = snapshot.docs.map((productDoc) => ({
-        id: productDoc.id,
-        ...productDoc.data(),
-      }));
+      const productList = snapshot.docs.map((productDoc) => {
+        const firestoreProduct = productDoc.data();
+
+        const localProduct = localProducts.find(
+          (product) => product.name === firestoreProduct.name
+        );
+
+        return {
+          id: productDoc.id,
+          ...firestoreProduct,
+          image: localProduct?.image || firestoreProduct.image,
+        };
+      });
 
       setProducts(productList);
     } catch (error) {
